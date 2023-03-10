@@ -9,3 +9,6 @@ else:
     print ("Todas las cuentas de Segovia son positivas")
 mensaje = "Sevilla (41013) " + ("no " if (cuentas[("sevilla",41013)][2]) else "") + "tiene su cuenta positiva"
 print (mensaje)
+listas_claves = list()
+for claves in cuentas.keys():
+    listas_claves.append(claves)

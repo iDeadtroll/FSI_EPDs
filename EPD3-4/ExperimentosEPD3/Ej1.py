@@ -1,0 +1,2 @@
+# EJ1. (10 min.) Cree una función generadora denominada cuentaAtras que, dado un número como parámetro, devuelva en
+# cada iteración del objeto generador un valor inferior en una unidad hasta alcanzar el valor cero
