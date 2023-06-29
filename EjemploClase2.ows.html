@@ -1,0 +1,1379 @@
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <title>Orange Report</title>
+
+    <style>
+    html, body, table {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 13px;
+        margin:0px;
+        padding:0;
+        border:0 none;
+    }
+
+    h1, h2 , h3, h4, h5 {
+       padding: 1px;
+       font-size:100%;
+    }
+
+    h1 {
+        color: white;
+        background-color: black;
+        padding: 4px;
+        margin-top: 12px;
+        margin-bottom: 6px;
+    }
+
+    h2 {
+        border-bottom: 1px solid black;
+        padding-left: 2px;
+    }
+
+    ul, table, p {
+        padding: 10px;
+    }
+
+    table {
+        margin-left: -6px;
+    }
+
+    span.timestamp {
+        position: absolute;
+        right: 40px;
+        color:#ddd;
+    }
+
+    div.selected, div.normal {
+        margin: 5px;
+    }
+
+    div.selected {
+        background: #ddd;
+    }
+    @media print{
+        div.selected {
+            background: inherit;
+        }
+        ::-webkit-input-placeholder {
+            color: transparent;
+        }
+    }
+
+    div.content {
+        margin-left: 15px;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 2px 6px 2px 6px;
+    }
+
+    th {
+        font-weight: bold;
+    }
+
+    @media screen {
+        td, th {
+            white-space: nowrap;
+        }
+    }
+
+    .caption {
+        text-align: center;
+        font-size: 90%;
+    }
+
+    img {
+        display: block;
+        margin: auto;
+        max-height: 20cm;
+    }
+
+    span.legend-square {
+        width: 1em;
+        height: 1em;
+        margin-right: 6px;
+        display: inline-block;
+    }
+
+    span.legend-item {
+        margin-right: 24px;
+    }
+
+    textarea {
+        border: 1px solid silver;
+        font-style: italic;
+        width: 100%;
+        height: 4em;
+    }
+
+    .textwrapper {
+        padding: 15px;
+    }
+
+    div.normal textarea:invalid {
+        display: none;
+    }
+
+    div.selected textarea {
+        display: block;
+    }
+
+    @media print{
+        section.section, img {
+            page-break-inside: avoid;
+        }
+    }
+    </style>
+    <script>
+    function scrollToId(id) {
+        var sel_el = document.getElementById(id);
+        if (sel_el != undefined) {
+            sel_el.scrollIntoView();
+            return true;
+        }
+        return false;
+    };
+
+    function setSelectedId(id) {
+        var sel_el = document.getElementsByClassName('selected')[0];
+        if (sel_el != undefined && sel_el.id != id) {
+           sel_el.className = 'normal';
+        }
+        sel_el = document.getElementById(id);
+        if (sel_el != undefined) {
+            sel_el.className = 'selected';
+            return true;
+        }
+        return false;
+    };
+    </script>
+
+</head><body onload="(function (id) {     setSelectedId(id); scrollToId(id); }(&quot;2281303062416&quot;));">
+
+ 
+
+<div id="2281318750528" class="normal" onclick="pybridge._select_item(this.id)"><section class="section"><h1>Data Table <span class="timestamp">Wed May 17 23, 17:16:32</span></h1><div class="content">
+<ul><b>Data instances:</b> 150<br><b>Features:</b> 4<br><b>Meta attributes:</b> None<br><b>Target:</b> Class 'iris'<br></ul><table>
+<tbody><tr><th></th><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">iris</th>
+<th style="color:black; background:transparent; text-align:left; vertical-align:middle;">sepal length</th>
+<th style="color:black; background:transparent; text-align:left; vertical-align:middle;">sepal width</th>
+<th style="color:black; background:transparent; text-align:left; vertical-align:middle;">petal length</th>
+<th style="color:black; background:transparent; text-align:left; vertical-align:middle;">petal width</th>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">23</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">14</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">15</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">36</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">3</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">17</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">37</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">39</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">41</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">42</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">43</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">1</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">2</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">5</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">7</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">9</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">13</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">18</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">29</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">34</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">46</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">48</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">50</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">4</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">8</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">10</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">11</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">16</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">20</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">22</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">28</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">32</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">33</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">35</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">38</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">40</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">49</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">12</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">26</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">27</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">30</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">31</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">44</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.6</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">47</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">6</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">19</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">21</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">24</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">25</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">45</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">99</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">58</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.0</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">94</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.0</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">61</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.0</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">80</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.0</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">65</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">82</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.0</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">81</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">60</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">70</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">83</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">54</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">63</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.0</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">72</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">90</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">93</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">68</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.0</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">89</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">100</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">62</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">95</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">96</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">97</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">75</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">98</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">66</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">76</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">88</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">91</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">52</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">56</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">67</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">69</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">79</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">85</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">86</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">6.0</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.6</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">107</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-virginica</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.9</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">2.5</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.7</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">55</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">6.5</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">2.8</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.6</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">59</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">6.6</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">2.9</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.6</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">92</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">6.1</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.6</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">51</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">7.0</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.2</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.7</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">57</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">6.3</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.3</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.7</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.6</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">64</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">6.1</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">2.9</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.7</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">74</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">6.1</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">2.8</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.7</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">87</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">6.7</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.1</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.7</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">71</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">5.9</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.2</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.8</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">77</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">6.8</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">2.8</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">127</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-virginica</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">6.2</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">2.8</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.8</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">139</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-virginica</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">6.0</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.8</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">53</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">6.9</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.1</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.9</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th></th><td colspan="5"><b>+ 50 more</b></td></tr>
+            </tbody></table></div></section>
+
+<div class="textwrapper"><textarea placeholder="Write a comment..." oninput="this.innerHTML = this.value;pybridge._add_comment(this.parentNode.parentNode.id, this.value);">me da suenio XD!</textarea></div></div><div id="2281303448880" class="normal" onclick="pybridge._select_item(this.id)"><section class="section"><h1>Data Table <span class="timestamp">Wed May 17 23, 17:26:01</span></h1><div class="content">
+<ul><b>Data instances:</b> 150<br><b>Features:</b> 4<br><b>Meta attributes:</b> None<br><b>Target:</b> Class 'iris'<br></ul><table>
+<tbody><tr><th></th><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">iris</th>
+<th style="color:black; background:transparent; text-align:left; vertical-align:middle;">sepal length</th>
+<th style="color:black; background:transparent; text-align:left; vertical-align:middle;">sepal width</th>
+<th style="color:black; background:transparent; text-align:left; vertical-align:middle;">petal length</th>
+<th style="color:black; background:transparent; text-align:left; vertical-align:middle;">petal width</th>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">23</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">14</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">15</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">36</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">3</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">17</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">37</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">39</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">41</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">42</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">43</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">1</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">2</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">5</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">7</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">9</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">13</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">18</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">29</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">34</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">46</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">48</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">50</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">4</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">8</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">10</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">11</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">16</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">20</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">22</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">28</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">32</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">33</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">35</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">38</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">40</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">49</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">12</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">26</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">27</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">30</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">31</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">44</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">0.6</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">47</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.8</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.6</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">6</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">5.4</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.9</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.7</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">0.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">19</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">5.7</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.8</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.7</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">0.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">21</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">5.4</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.7</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">24</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.3</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.7</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">0.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">25</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.9</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">0.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">45</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-setosa</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.8</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.9</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">0.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">99</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">5.1</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">2.5</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">58</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">4.9</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">2.4</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.3</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.0</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">94</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">2.3</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.3</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.0</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">61</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">5.0</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">2.0</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.5</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.0</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">80</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">5.7</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">2.6</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.5</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.0</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">65</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">5.6</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">2.9</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.6</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">82</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">5.5</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">2.4</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.7</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.0</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">81</th>
+<td style="color:#ffffff; background:#0078d7; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">5.5</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">2.4</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">3.8</td>
+<td style="color:#ffffff; background:#0078d7; text-align:right; vertical-align:middle;">1.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">60</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">70</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.1</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">83</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">54</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">63</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.0</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">72</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">90</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">93</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">68</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.0</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">89</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">100</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">62</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">95</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">96</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">97</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">75</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">98</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">66</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">76</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">88</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">91</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">52</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">56</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">67</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">69</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">79</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">85</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">86</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.4</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.6</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">107</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-virginica</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.7</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">55</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.5</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">59</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.3</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">92</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.6</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">51</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">7.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">57</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.3</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.6</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">64</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">74</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.2</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">87</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.7</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">71</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">5.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.8</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">77</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.4</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">127</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-virginica</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.2</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">2.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.8</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">139</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-virginica</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.0</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.8</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.8</td>
+</tr><tr><th style="color:black; background:transparent; text-align:left; vertical-align:middle;">53</th>
+<td style="color:#000000; background:#a0a0a0; text-align:left; vertical-align:middle;">Iris-versicolor</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">6.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">3.1</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">4.9</td>
+<td style="color:black; background:transparent; text-align:right; vertical-align:middle;">1.5</td>
+</tr><tr><th></th><td colspan="5"><b>+ 50 more</b></td></tr>
+            </tbody></table></div></section>
+
+<div class="textwrapper"><textarea placeholder="Write a comment..." oninput="this.innerHTML = this.value;pybridge._add_comment(this.parentNode.parentNode.id, this.value);"></textarea></div></div><div id="2281303062416" class="selected" onclick="pybridge._select_item(this.id)"><section class="section"><h1>Box Plot <span class="timestamp">Wed May 17 23, 17:26:26</span></h1><div class="content">
+<img src="data:image/png;base64,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"><p class="caption">Box plot for attribute 'petal length' grouped by 'iris'</p></div></section>
+
+<div class="textwrapper"><textarea placeholder="Write a comment..." oninput="this.innerHTML = this.value;pybridge._add_comment(this.parentNode.parentNode.id, this.value);"></textarea></div></div></body></html>

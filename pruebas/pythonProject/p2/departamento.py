@@ -1,5 +1,3 @@
-from tokenize import String
-
 
 class Departamento:
     def __init__(self, id, description):
