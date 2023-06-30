@@ -28,3 +28,6 @@ class raiz:
         if intentos < 2:
             solucion=math.sqrt(numero)
             print("La raíz cuadrada de " + str(numero) + " es " + str(solucion))
+
+r1= raiz()
+r1.calcular_raiz()
