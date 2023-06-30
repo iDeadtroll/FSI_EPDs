@@ -35,3 +35,5 @@ for x in range(len(salida)):
 
 print("\nDiccionario ,con formato, usando compresion de listas:")
 print('\n'.join(f'\t{clave}{valor}' for clave, valor in diccionario.items()))
+
+

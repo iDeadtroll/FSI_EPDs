@@ -3,6 +3,9 @@ cuentas = {"sevilla" : [300,450], "madrid" : [400,300], "segovia" : [500,350], "
 print("Diccionario cuentas:\n", cuentas)
 
 
+#Actulizar el valor de la clave 'sevilla'
+cuentas['sevilla']=[400,500]
+print('Cuentas actualizado:\n',cuentas)
 #Mostrar lista de claves
 claves= list(cuentas.keys())
 print("\nLista de claves del diccionario:\n",claves)
